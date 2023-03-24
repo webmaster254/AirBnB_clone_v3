@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Test BaseModel for expected behavior and documentation"""
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
 import inspect
 import models
 import pep8 as pycodestyle
@@ -82,12 +82,13 @@ class TestBaseModel(unittest.TestCase):
         """Test that two BaseModel instances have different datetime objects
         and that upon creation have identical updated_at and created_at
         value."""
+        # Create two BaseModel instances
         inst1 = BaseModel()
         inst2 = BaseModel()
 
         # Check that the created_at and updated_at attributes are set to the current time
-        self.assertAlmostEqual(inst1.created_at, inst2.created_at, delta=datetime.timedelta(seconds=1))
-        self.assertAlmostEqual(inst1.updated_at, inst2.updated_at, delta=datetime.timedelta(seconds=1))
+        self.assertAlmostEqual(inst1.created_at, inst2.created_at, delta=timedelta(seconds=1))
+        self.assertAlmostEqual(inst1.updated_at, inst2.updated_at, delta=timedelta(seconds=1))
 
         # Modify one of the instances and check that the updated_at attribute changes
         inst1.name = "Test Instance 1"
